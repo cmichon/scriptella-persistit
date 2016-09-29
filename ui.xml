@@ -1,0 +1,12 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+  <connection id="java" driver="janino"/>
+  <connection id="in1" driver="text" url="TAXNUM.DAT"/>
+  <script connection-id="java">
+    import com.persistit.*;
+    Persistit db = PersistitSingleton.getInstance();
+    db.setupGUI(true);
+    db.copyBackPages();
+    db.close();
+  </script>
+</etl>

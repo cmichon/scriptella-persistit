@@ -1,0 +1,26 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="" default="jar">
+  <!--property file="proxy.properties"/>
+  <setproxy proxyhost="${proxyhost}" proxyport="${proxyport}" proxyuser="${proxyuser}" proxypassword="${proxypass}"/-->
+  <path id="classpath">
+    <fileset dir="lib" includes="**/*.jar"/>
+  </path>
+  <target name="retrieve">
+    <ivy:retrieve/>
+  </target>
+  <target name="classes" depends="retrieve">
+    <mkdir dir="classes"/>
+    <javac srcdir="src" destdir="classes" classpathref="classpath" includeantruntime="false"/>
+  </target>
+  <target name="jar" depends="classes">
+    <mkdir dir="data"/>
+    <jar destfile="lib/persistit-singleton-0.0.1.jar" basedir="classes"/>
+  </target>
+  <target name="clean">
+    <delete includeemptydirs="true" quiet="true">
+      <fileset file="TAXNUM.DAT"/>
+      <fileset dir="classes"/>
+      <fileset dir="data"/>
+      <fileset dir="lib"/>
+    </delete>
+  </target>
+</project>

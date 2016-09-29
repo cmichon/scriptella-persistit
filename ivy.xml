@@ -1,0 +1,16 @@
+<ivy-module version="2.0" >
+  <info organisation="" module=""/>
+  <dependencies defaultconf="default">
+    <dependency org="org.sonarsource" name="sonar-persistit" rev="3.3.2"/>
+    <dependency org="com.javaforge.scriptella" name="scriptella-drivers" rev="1.1">
+      <exclude module="commons-jexl"/>
+    </dependency>
+    <dependency org="com.javaforge.scriptella" name="scriptella-tools" rev="1.1">
+      <exclude module="ant"/>
+      <exclude module="commons-jexl"/>
+    </dependency>
+    <dependency org="org.codehaus.janino" name="janino" rev="2.7.8"/>
+    <dependency org="org.apache.commons" name="commons-compress" rev="1.11"/>
+    <dependency org="org.tukaani" name="xz" rev="1.5"/>
+  </dependencies>
+</ivy-module>
